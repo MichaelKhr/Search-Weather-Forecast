@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+body {
+    background: rgb(46, 44, 80);
+    background: linear-gradient(90deg, rgba(46, 44, 80, 1) 0%, rgba(255, 205, 46, 1) 35%, rgba(171, 94, 61, 1) 100%);
+}
+
+.light-theme {
+    color: black;
+    transition-property: color;
+    transition-duration: 1.5s;
+}
+.dark-theme {
+    color: white;
+    transition-property: color;
+    transition-duration: 1.5s;
+}
+.wrapper {
+    z-index: 3;
+    min-height: 98vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto;
+    background: url("../src/assets/background.png") 0 0/10% auto repeat;
+}
+
+.header {
+    &_logo {
+        margin: 0 0 0 20px;
+        max-width: 100%;
+        max-height: 2rem;
+    }
+    &_switch {
+        display: inline-block;
+        margin: 0 10px;
+        font-family: Roboto;
+    }
+    &__input {
+        position: relative;
+    }
+    &__error {
+        width: 10rem;
+        position: absolute;
+        top: 2.5rem;
+        left: -0.1rem;
+    }
+}
+
+.page {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    &__container {
+        margin: 0 auto;
+        max-width: 1040px;
+    }
+    &__card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+.card {
+    text-align: center;
+    &__tempo {
+        font-size: 3em;
+        text-align: center;
+    }
+    &__img {
+        display: block;
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    &__footer {
+    }
+}
+
+.footer-card {
+    display: flex;
+    margin: -3px 0;
+    flex-wrap: wrap;
+    &__column {
+        padding: 3px;
+        flex: 0 0 25%;
+        @media (max-width: 500px) {
+            flex: 0 0 50%;
+        }
+    }
+
+    &__item {
+        font-size: 1rem;
+        background-color: #ffce2e63;
+        border-radius: 20%;
+        padding: 1rem;
+    }
+
+    &__title {
+    }
+
+    &__icon {
+        padding: 20px;
+        color: white;
+        img {
+            max-width: 100%;
+            color: white;
+        }
+    }
+
+    &__value {
+        font-weight: bold;
+    }
+}

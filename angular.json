@@ -31,7 +31,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/app/ngprime/arya-orange.scss",
+                "bundleName": "arya-orange",
+                "inject": false
+              },
+              {
+                "input": "src/app/ngprime/saga-orange.scss",
+                "bundleName": "saga-orange",
+                "inject": false
+              },
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeng/resources/primeng.css",
+              "node_modules/primeicons/primeicons.css"
             ],
             "scripts": []
           },
