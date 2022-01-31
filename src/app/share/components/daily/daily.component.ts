@@ -13,4 +13,10 @@ export class DailyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getDate(index: number) {
+    let date = new Date()
+    return new Date(date.setDate(date.getDate() + index))
+
+  }
+
 }

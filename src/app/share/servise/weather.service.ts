@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable, switchMap } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 export interface WeatherCard {
   coord: {
@@ -19,28 +19,30 @@ export interface WeatherCard {
 
 export interface DailyWeather {
   daily: [
+    Daily
+  ]
+}
+
+export interface Daily {
+  temp: {
+    day: number,
+    night: number,
+    eve: number,
+    morn: number,
+    min: number,
+    max: number
+  },
+  feels_like: {
+    day: number,
+    night: number,
+    eve: number,
+    morn: number,
+  },
+  wind_speed: number,
+  weather: [
     {
-      temp: {
-        day: number,
-        night: number,
-        eve: number,
-        morn: number,
-        min: number,
-        max: number
-      },
-      feels_like: {
-        day: number,
-        night: number,
-        eve: number,
-        morn: number,
-      },
-      wind_spped: number,
-      weather: [
-        {
-          main: string,
-          description: string
-        }
-      ]
+      main: string,
+      description: string
     }
   ]
 }
@@ -51,7 +53,7 @@ export interface DailyWeather {
 export class WeatherService {
 
   weatherNow!: WeatherCard
-  weatherForWeek!: DailyWeather
+  weatherForWeek!: Daily[]
 
   constructor(private http: HttpClient) {
 
@@ -72,5 +74,6 @@ export class WeatherService {
   getAllWeather(lat: number, lon: number): Observable<DailyWeather> {
 
     return this.http.get<DailyWeather>(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=d20ca93f08a1e64fca094bbf72c1b127&units=metric`)
+
   }
 }

@@ -5,7 +5,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
-// import { TableModule } from 'primeng/table';
+import { TableModule } from 'primeng/table';
 
 
 const primeNgModules: Array<any> = [
@@ -14,7 +14,7 @@ const primeNgModules: Array<any> = [
   InputSwitchModule,
   ButtonModule,
   CardModule,
-  // TableModule,
+  TableModule,
   InputTextModule
 ]
 

@@ -1,1 +1,30 @@
-<!-- Demo versoin! Here will be primeng table -->
+<p-table [value]="weather.weatherForWeek" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Date</th>
+            <th></th>
+            <th>Day</th>
+            <th>Night</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-week>
+        <tr>
+            <td>{{getDate(weather.weatherForWeek.indexOf(week)) | date:'dd.MM'}}</td>
+            <td [ngSwitch]="week.weather[0].main">
+                <img class="card__img" *ngSwitchCase="'Snow'" src="../../../../assets/img/snow1.png" alt="snow">
+            <img class="card__img" *ngSwitchCase="'Rain'" src="../../../../assets/img/rain1.png" alt="rain">
+            <img class="card__img" *ngSwitchCase="'Clouds'" src="../../../../assets/img/clouds1.png" alt="clouds">
+            <img class="card__img" *ngSwitchCase="'Clear'" src="../../../../assets/img/clear1.png" alt="clear">
+            <img class="card__img" *ngSwitchCase="'Mist'" src="../../../../assets/img/mist_smoke_haze.png" alt="mist">
+            <img class="card__img" *ngSwitchCase="'Smoke'" src="../../../../assets/img/mist_smoke_haze.png" alt="smoke">
+            <img class="card__img" *ngSwitchCase="'Haze'" src="../../../../assets/img/mist_smoke_haze.png" alt="haze">
+            <img class="card__img" *ngSwitchCase="'Thunderstorm'" src="../../../../assets/img/thunderstorm1.png" alt="thunderstorm">
+            <img class="card__img" *ngSwitchCase="'Sand'" src="../../../../assets/img/dust_sand1.png" alt="sand">
+            <img class="card__img" *ngSwitchCase="'Dust'" src="../../../../assets/img/dust_sand1.png" alt="dust">
+            <img class="card__img" *ngSwitchDefault src="../../../../assets/img/definite.png" alt="default">
+            </td>
+            <td>{{week.temp.day}}</td>
+            <td>{{week.temp.night}}</td>
+        </tr>
+    </ng-template>
+</p-table>

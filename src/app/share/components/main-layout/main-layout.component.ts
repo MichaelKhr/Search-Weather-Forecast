@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { map, Subscription } from 'rxjs';
 import { ThemesService } from '../../../ngprime/themes.service';
 import { WeatherService } from '../../servise/weather.service';
 
@@ -42,6 +42,9 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
 
 
     this.subNow = this.weather.getWeather(this.searchValue)
+      .pipe(
+        map(item => item.daily)
+      )
       .subscribe(data => {
         this.loading = false
         this.cityError = false;
